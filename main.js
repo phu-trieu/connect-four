@@ -1,26 +1,41 @@
-var row0 = [0, 0, 0, 0, 0, 0, 0];
-var row1 = [0, 0, 0, 0, 0, 0, 0];
-var row2 = [0, 0, 0, 0, 0, 0, 0];
-var row3 = [0, 0, 0, 0, 0, 0, 0];
-var row4 = [0, 0, 0, 0, 0, 0, 0];
-var row5 = [0, 0, 0, 0, 0, 0, 0];
-var multiArray = [row0, row1, row2, row3, row4, row5];
+var grid = [
+    [0, 0, 0, 0, 0, 0, 0],
+    [0, 0, 0, 0, 0, 0, 0],
+    [0, 0, 0, 0, 0, 0, 0],
+    [0, 0, 0, 0, 0, 0, 0],
+    [0, 0, 0, 0, 0, 0, 0],
+    [0, 0, 0, 0, 0, 0, 0]
+];
+
+var currentPlayer = 1;
 
 //DOM Elements
 var body = document.querySelector("body");
 var container = document.getElementById("container");
-
+// var column = document.querySelector('.column')
 
 //Event Listeners
-container.addEventListener("click", function(e) {
-    console.log(e.target);
-});
+container.addEventListener("click", selectColumn);
+
+function selectColumn(e) {
+    var column = e.target.parentElement;
+    console.log("target", column);
+    drop()
+    console.log(grid)
+}
 
 function drop() {
-    for (var i = 5; i >= 0; i--) {
-        if (multiArray[i][0] === 0) {
-            multiArray[i][0] = currentPlayer;
-            break;
+    for (var row = 5; row >= 0; row--) {
+        for (var col = 0; col <= 6; col++) {
+            if (grid[row][col] !== 0) {
+                if (currentPlayer === 1) {
+                    grid[row - 1][col] = 1;
+                    return (currentPlayer = 2);
+                }
+            } else {
+                grid[row][col] = 1;
+                break;
+            }
         }
     }
 }
