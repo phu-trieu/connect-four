@@ -30,3 +30,8 @@ body {
 .yellow {
     background-color: yellow;
 }
+
+#resetButton {
+    margin-top: 3%;
+    font-size: 1.5rem;
+}
