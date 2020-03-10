@@ -1,23 +1,26 @@
-var column = document.getElementsByTagName("td");
-var row = document.getElementsByTagName("tr");
+var row0 = [0, 0, 0, 0, 0, 0, 0];
+var row1 = [0, 0, 0, 0, 0, 0, 0];
+var row2 = [0, 0, 0, 0, 0, 0, 0];
+var row3 = [0, 0, 0, 0, 0, 0, 0];
+var row4 = [0, 0, 0, 0, 0, 0, 0];
+var row5 = [0, 0, 0, 0, 0, 0, 0];
+var multiArray = [row0, row1, row2, row3, row4, row5];
 
-// console.log(column)
+//DOM Elements
+var body = document.querySelector("body");
+var container = document.getElementById("container");
 
-for (var j = 5; j >= 0; j--) {
-    row[j].addEventListener("click", function(e) {
-        console.log('row', e.currentTarget.rowIndex);
-        var target = e.target;
-        if (target.classList.contains('white')) {
-            target.classList.remove('white');
-            target.classList.add('red')
-        } else {
-            console.log('testing')
+
+//Event Listeners
+container.addEventListener("click", function(e) {
+    console.log(e.target);
+});
+
+function drop() {
+    for (var i = 5; i >= 0; i--) {
+        if (multiArray[i][0] === 0) {
+            multiArray[i][0] = currentPlayer;
+            break;
         }
-    });
-}
-
-for (var i = 0; i < column.length; i++) {
-    column[i].addEventListener("click", function(e) {
-
-    });
+    }
 }
