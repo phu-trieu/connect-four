@@ -1,23 +1,41 @@
-var column = document.getElementsByTagName("td");
-var row = document.getElementsByTagName("tr");
+var grid = [
+    [0, 0, 0, 0, 0, 0, 0],
+    [0, 0, 0, 0, 0, 0, 0],
+    [0, 0, 0, 0, 0, 0, 0],
+    [0, 0, 0, 0, 0, 0, 0],
+    [0, 0, 0, 0, 0, 0, 0],
+    [0, 0, 0, 0, 0, 0, 0]
+];
 
-// console.log(column)
+var currentPlayer = 1;
 
-for (var j = 5; j >= 0; j--) {
-    row[j].addEventListener("click", function(e) {
-        console.log('row', e.currentTarget.rowIndex);
-        var target = e.target;
-        if (target.classList.contains('white')) {
-            target.classList.remove('white');
-            target.classList.add('red')
-        } else {
-            console.log('testing')
-        }
-    });
+//DOM Elements
+var body = document.querySelector("body");
+var container = document.getElementById("container");
+// var column = document.querySelector('.column')
+
+//Event Listeners
+container.addEventListener("click", selectColumn);
+
+function selectColumn(e) {
+    var column = e.target.parentElement;
+    console.log("target", column);
+    drop()
+    console.log(grid)
 }
 
-for (var i = 0; i < column.length; i++) {
-    column[i].addEventListener("click", function(e) {
-
-    });
+function drop() {
+    for (var row = 5; row >= 0; row--) {
+        for (var col = 0; col <= 6; col++) {
+            if (grid[row][col] !== 0) {
+                if (currentPlayer === 1) {
+                    grid[row - 1][col] = 1;
+                    return (currentPlayer = 2);
+                }
+            } else {
+                grid[row][col] = 1;
+                break;
+            }
+        }
+    }
 }
