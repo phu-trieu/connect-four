@@ -1,16 +1,15 @@
 var grid = [
-  [1, 0, 0, 0, 0, 0, 0],
-  [1, 0, 0, 0, 0, 0, 0],
-  [1, 0, 0, 1, 0, 0, 0],
-  [1, 0, 1, 0, 1, 0, 0],
-  [0, 1, 0, 0, 0, 1, 0],
-  [1, 1, 1, 1, 0, 0, 1]
+  [0, 0, 0, 0, 0, 0, 0],
+  [0, 0, 0, 0, 0, 0, 0],
+  [0, 0, 0, 0, 0, 0, 0],
+  [0, 0, 0, 0, 0, 0, 0],
+  [0, 0, 0, 0, 0, 0, 0],
+  [0, 0, 0, 0, 0, 0, 0]
 ];
 
 var currentPlayer = 1;
 
 //DOM Elements
-var body = document.querySelector("body");
 var container = document.getElementById("container");
 
 //Event Listeners
@@ -90,6 +89,7 @@ function diagonalMinus() {
       }
     }
   }
+}
 function dropChip(e) {
     var column = e.target.parentElement;
     if(column.className !== 'column') {
