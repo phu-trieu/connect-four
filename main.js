@@ -7,12 +7,11 @@ for (var j = 5; j >= 0; j--) {
     row[j].addEventListener("click", function(e) {
         console.log('row', e.currentTarget.rowIndex);
         var target = e.target;
-        if (!target.classList.contains('white')) {
+        if (target.classList.contains('white')) {
             target.classList.remove('white');
             target.classList.add('red')
         } else {
-            target.classList.remove('white');
-            target.classList.add('yellow')
+            console.log('testing')
         }
     });
 }
