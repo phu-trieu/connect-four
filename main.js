@@ -16,19 +16,20 @@ var container = document.getElementById("container");
 //Event Listeners
 container.addEventListener("click", dropChip);
 
-var col0Counter = 0;
 function dropChip(e) {
     var column = e.target.parentElement;
-    console.log(column)
+    if(column.className !== 'column') {
+        return;
+    }
+    if(column.children[0].className !== 'slot') {
+        return;
+    }
     var col = column.id;
     if (currentPlayer === 1) {
         for (var row = 5; row >= 0; row--) {
             if (grid[row][col] === 0) {
                 grid[row][col] = 1;
-                col0Counter++;
                 break;
-            } else if(col0Counter === 6) {
-                return;
             }
         }
         currentPlayer = 2;
@@ -36,17 +37,13 @@ function dropChip(e) {
         for (var row2 = 5; row2 >= 0; row2--) {
             if (grid[row2][col] === 0) {
                 grid[row2][col] = 2;
-                col0Counter++;
                 break;
-            } else if(col0Counter === 6) {
-                return;
             }
         }
         currentPlayer = 1;
     }
     colorGrid();
 }
-
 
 function colorGrid() {
     for (var row = 0; row < 6; row++) {
@@ -61,26 +58,3 @@ function colorGrid() {
         }
     }
 }
-
-// function drop() {
-//     for (var row = 5; row >= 0; row--) {
-//         for (var col = 0; col <= 6; col++) {
-//             if (((grid[row][col] === grid[row][col + 1]) === grid[row][col + 2]) === grid[row][col + 3]) {
-//                 console.log("hello")
-//             }
-//         }
-//     }
-// }
-//
-
-function resetGame() {
-    for(var row = 5; row >= 0; row--) {
-        for(var col = 0; col <= 6; col++) {
-            grid[row][col] = 0;
-        }
-    }
-    return grid;
-}
-var getResetButton = document.getElementById('resetButton');
-getResetButton.addEventListener('click', resetGame);
-
