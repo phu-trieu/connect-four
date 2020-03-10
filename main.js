@@ -79,8 +79,8 @@ function resetGame() {
             grid[row][col] = 0;
         }
     }
-    return grid;
+    currentPlayer = 1;
+    colorGrid();
 }
 var getResetButton = document.getElementById('resetButton');
 getResetButton.addEventListener('click', resetGame);
-
