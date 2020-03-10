@@ -8,10 +8,11 @@ for (var j = 5; j >= 0; j--) {
         console.log('row', e.currentTarget.rowIndex);
         var target = e.target;
         if (!target.classList.contains('white')) {
-            return;
-        } else {
             target.classList.remove('white');
             target.classList.add('red')
+        } else {
+            target.classList.remove('white');
+            target.classList.add('yellow')
         }
     });
 }
