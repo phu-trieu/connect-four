@@ -39,3 +39,14 @@ function drop() {
         }
     }
 }
+
+function resetGame() {
+    for(var row = 5; row >= 0; row--) {
+        for(var col = 0; col <= 6; col++) {
+            grid[row][col] = 0;
+        }
+    }
+    return grid;
+}
+var getResetButton = document.getElementById('resetButton');
+getResetButton.addEventListener('click', resetGame);
