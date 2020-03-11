@@ -1,0 +1,62 @@
+.player1 {
+    background-image: url(./images/corona.jpg);
+    background-size: 100% 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.player2 {
+    background-image: url(./images/lagunitas.jpg);
+    background-size: 100% 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.player3 {
+    background-image: url(./images/modelo.png);
+    background-size: 100% 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.player4 {
+    background-image: url(./images/ballast.png);
+    background-size: 100% 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.player5 {
+    background-image: url(./images/stella.png);
+    background-size: 100% 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.player6 {
+    background-image: url(./images/guinness.png);
+    background-size: 100% 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.player7 {
+    background-image: url(./images/goose.png);
+    background-size: 100% 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.player8 {
+    background-image: url(./images/kona.png);
+    background-size: 100% 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.player9 {
+    background-image: url(./images/newcastle.png);
+    background-size: 100% 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+}
