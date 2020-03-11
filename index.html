@@ -4,11 +4,12 @@
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <link rel="stylesheet" href="style.css">
+        <link rel="stylesheet" href="fonts.css">
         <title>Degen Connect 4</title>
     </head>
     <body>
         <header>
-            <h1>Connect 4</h1>
+            <img src="/images/title.png" alt="title" class="title" >
             <h2>Player 1's Turn</h2>
         </header>
         <div class="container" id="container">
@@ -69,13 +70,14 @@
                 <div class="slot" id="cell56"></div>
             </div>
         </div>
-        <div class="modal-overlay hidden">
+        <div class="modal-overlay">
             <div class="modal-content">
                 <div class="modal-text">
                     <h1>CONGRATULATIONS!</h1>
                     <h1 id="modalPlayerNumber">You have won the game!</h1>
                 </div>
-                <button id="modalButton">Wanna play again?</button>
+                <div id = "modalButton" class="modalButton"></div>
+
             </div>
         </div>
         <button id="resetButton">Reset Game</button>
