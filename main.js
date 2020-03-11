@@ -11,17 +11,16 @@ var currentPlayer = 1;
 
 //DOM Elements
 var container = document.getElementById("container");
-var getResetButton = document.getElementById("resetButton");
 var getModalButton = document.getElementById("modalButton");
-var h1 = document.querySelector("h1");
+var getResetText = document.getElementById('resetText');
 var h2 = document.querySelector("h2");
 var modal = document.querySelector(".modal-overlay");
 var modalPlayerNumber = document.getElementById('modalPlayerNumber');
 
 //Event Listeners
 container.addEventListener("click", dropChip);
-getResetButton.addEventListener("click", resetGame);
 getModalButton.addEventListener("click", modalReset);
+getResetText.addEventListener('click', resetGame);
 
 // win condition
 
@@ -165,9 +164,9 @@ function colorGrid() {
             if (grid[row][col] === 0) {
                 document.getElementById("cell" + row + col).className = "slot";
             } else if (grid[row][col] === 1) {
-                document.getElementById("cell" + row + col).className = "slot red";
+                document.getElementById("cell" + row + col).className = "slot player1";
             } else if (grid[row][col] === 2) {
-                document.getElementById("cell" + row + col).className = "slot yellow";
+                document.getElementById("cell" + row + col).className = "slot player2";
             }
         }
     }
