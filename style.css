@@ -1,5 +1,5 @@
 body {
-    background-image: url(/images/tropical-beach-background-1.jpg);
+    background-image: url(./images/tropical-beach-background-1.jpg);
     background-size: 100vw 105vh;
     background-position: center;
     background-repeat: no-repeat;
@@ -39,14 +39,14 @@ body {
 }
 
 .player1 {
-    background-image: url(/images/corona.jpg);
+    background-image: url(./images/corona.jpg);
     background-size: 100% 100%;
     background-position: center;
     background-repeat: no-repeat;
 }
 
 .player2 {
-    background-image: url(/images/lagunitas.jpg);
+    background-image: url(./images/lagunitas.jpg);
     background-size: 100% 100%;
     background-position: center;
     background-repeat: no-repeat;
@@ -80,7 +80,7 @@ body {
     font-size: 75px;
     height: 60px;
     width: 250px;
-    background-image: url(/images/bottle3.png);
+    background-image: url(./images/bottle3.png);
     background-size: cover;
     background-color: transparent;
     color:white
