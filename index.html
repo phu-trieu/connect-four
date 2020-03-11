@@ -9,6 +9,7 @@
     <body>
         <header>
             <h1>Connect 4</h1>
+            <h2>Player 1's Turn</h2>
         </header>
         <div class="container" id="container">
             <div class="column" id="0">
@@ -66,6 +67,15 @@
                 <div class="slot" id="cell36"></div>
                 <div class="slot" id="cell46"></div>
                 <div class="slot" id="cell56"></div>
+            </div>
+        </div>
+        <div class="modal-overlay hidden">
+            <div class="modal-content">
+                <div class="modal-text">
+                    <h1>CONGRATULATIONS!</h1>
+                    <h1>You have won the game!</h1>
+                </div>
+                <button id="modalButton">Wanna play again</button>
             </div>
         </div>
         <button id="resetButton">Reset Game</button>
