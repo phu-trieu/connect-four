@@ -38,21 +38,7 @@ body {
     cursor: pointer;
 }
 
-.player1 {
-    background-image: url(./images/corona.jpg);
-    background-size: 100% 100%;
-    background-position: center;
-    background-repeat: no-repeat;
-}
-
-.player2 {
-    background-image: url(./images/lagunitas.jpg);
-    background-size: 100% 100%;
-    background-position: center;
-    background-repeat: no-repeat;
-}
-
-.modal-overlay {
+.modal-overlay, .modal-beer {
     position: fixed;
     display: flex;
     justify-content: center;
@@ -118,6 +104,34 @@ h1 {
 #resetText:hover {
     cursor: pointer;
 }
+
+.beer-content {
+    background-color: rgba(135, 207, 235, 0.897);
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    flex-wrap: wrap;
+    text-align: center;
+    width: 50vw;
+    height: 50vh;
+    color: white;
+    border-radius: 50px;
+}
+
+.beer-content > * {
+    width: 17%;
+    height: 24%;
+}
+
+.corona-slot, .lag-slot {
+    background-color: rgba(32, 30, 30, 0.8);
+}
+
+.beer-content>h1 {
+    width: 100%;
+    color:black;
+}
+
 
 @media only screen
   and (min-device-width: 768px)

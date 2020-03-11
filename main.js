@@ -8,19 +8,20 @@ var grid = [
 ];
 
 var currentPlayer = 1;
+var array = [];
 
 //DOM Elements
 var container = document.getElementById("container");
 var getModalButton = document.getElementById("modalButton");
-var getResetText = document.getElementById('resetText');
+var getResetText = document.getElementById("resetText");
 var h2 = document.querySelector("h2");
 var modal = document.querySelector(".modal-overlay");
-var modalPlayerNumber = document.getElementById('modalPlayerNumber');
+var modalPlayerNumber = document.getElementById("modalPlayerNumber");
 
 //Event Listeners
 container.addEventListener("click", dropChip);
 getModalButton.addEventListener("click", modalReset);
-getResetText.addEventListener('click', resetGame);
+getResetText.addEventListener("click", resetGame);
 
 // win condition
 
@@ -43,12 +44,12 @@ function horizontalWin() {
                 grids[col] !== 0
             ) {
                 modal.classList.remove("hidden");
-                if(currentPlayer === 1) {
+                if (currentPlayer === 1) {
                     currentPlayer = 2;
-                    modalPlayerNumber.textContent = 'Player ' + currentPlayer + ' has won the game!';
-                } else if(currentPlayer === 2) {
+                    modalPlayerNumber.textContent = "Player " + currentPlayer + " has won the game!";
+                } else if (currentPlayer === 2) {
                     currentPlayer = 1;
-                    modalPlayerNumber.textContent = 'Player ' + currentPlayer + ' has won the game!';
+                    modalPlayerNumber.textContent = "Player " + currentPlayer + " has won the game!";
                 }
             }
         }
@@ -69,10 +70,10 @@ function verticalWin() {
                 modal.classList.remove("hidden");
                 if (currentPlayer === 1) {
                     currentPlayer = 2;
-                    modalPlayerNumber.textContent = 'Player ' + currentPlayer + ' has won the game!';
+                    modalPlayerNumber.textContent = "Player " + currentPlayer + " has won the game!";
                 } else if (currentPlayer === 2) {
                     currentPlayer = 1;
-                    modalPlayerNumber.textContent = 'Player ' + currentPlayer + ' has won the game!';
+                    modalPlayerNumber.textContent = "Player " + currentPlayer + " has won the game!";
                 }
             }
         }
@@ -92,10 +93,10 @@ function diagonalPlus() {
                 modal.classList.remove("hidden");
                 if (currentPlayer === 1) {
                     currentPlayer = 2;
-                    modalPlayerNumber.textContent = 'Player ' + currentPlayer + ' has won the game!';
+                    modalPlayerNumber.textContent = "Player " + currentPlayer + " has won the game!";
                 } else if (currentPlayer === 2) {
                     currentPlayer = 1;
-                    modalPlayerNumber.textContent = 'Player ' + currentPlayer + ' has won the game!';
+                    modalPlayerNumber.textContent = "Player " + currentPlayer + " has won the game!";
                 }
             }
         }
@@ -116,10 +117,10 @@ function diagonalMinus() {
                 modal.classList.remove("hidden");
                 if (currentPlayer === 1) {
                     currentPlayer = 2;
-                    modalPlayerNumber.textContent = 'Player ' + currentPlayer + ' has won the game!';
+                    modalPlayerNumber.textContent = "Player " + currentPlayer + " has won the game!";
                 } else if (currentPlayer === 2) {
                     currentPlayer = 1;
-                    modalPlayerNumber.textContent = 'Player ' + currentPlayer + ' has won the game!';
+                    modalPlayerNumber.textContent = "Player " + currentPlayer + " has won the game!";
                 }
             }
         }
@@ -164,9 +165,9 @@ function colorGrid() {
             if (grid[row][col] === 0) {
                 document.getElementById("cell" + row + col).className = "slot";
             } else if (grid[row][col] === 1) {
-                document.getElementById("cell" + row + col).className = "slot player1";
+                document.getElementById("cell" + row + col).className = "slot " + array[0];
             } else if (grid[row][col] === 2) {
-                document.getElementById("cell" + row + col).className = "slot player2";
+                document.getElementById("cell" + row + col).className = "slot " + array[1];
             }
         }
     }
@@ -181,6 +182,7 @@ function resetGame() {
     currentPlayer = 1;
     h2.textContent = "Player 1's Turn";
     colorGrid();
+    destroyBeer();
 }
 
 function modalReset() {
@@ -193,4 +195,40 @@ function modalReset() {
     modal.classList.add("hidden");
     h2.textContent = "Player 1's Turn";
     colorGrid();
+    destroyBeer();
+}
+
+var beer = document.getElementById("beerContent");
+beer.addEventListener("click", beerClick);
+
+var beerModal = document.querySelector(".modal-beer");
+
+function beerClick(e) {
+    if (e.target.classList.contains("slot")) {
+        e.target.classList.add("hidden");
+        var beerIcon = e.target.id;
+        array.push(beerIcon);
+
+        if (array.length === 2) {
+            beerModal.classList.add("hidden");
+        }
+    }
+}
+
+function destroyBeer() {
+    while (beer.hasChildNodes()) {
+        beer.removeChild(beer.lastChild);
+    }
+    createBeer();
+    array = [];
+}
+
+function createBeer() {
+    for (let i = 1; i <= 9; i++) {
+        var div = document.createElement("div");
+        div.className = `slot player${i}`;
+        div.setAttribute("id", `player${i}`);
+        beer.appendChild(div);
+    }
+    beerModal.classList.remove("hidden");
 }
