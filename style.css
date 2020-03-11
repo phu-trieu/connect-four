@@ -11,8 +11,8 @@ body {
 }
 
 .container {
-    height: fit-content;
-    width: fit-content;
+    height: 580px;
+    width: 700px;
     /* background-color: rgba(126, 186, 255, 0.568); */
     background-image: linear-gradient(rgba(255, 94, 0, 0.5), rgba(237, 216, 100, 0.5));
     display: flex;
@@ -117,4 +117,77 @@ h1 {
 
 #resetText:hover {
     cursor: pointer;
+}
+
+@media only screen
+  and (min-device-width: 768px)
+  and (max-device-width: 1024px)
+  and (-webkit-min-device-pixel-ratio: 1) {
+    .container {
+        width: 575px;
+        height: 465px;
+    }
+
+    .slot {
+        width: 72px;
+        height: 72px;
+    }
+}
+
+@media only screen
+  and (min-device-width: 667px)
+  and (max-device-height: 375px) {
+    body {
+        width: 375px;
+        margin: 0 auto;
+    }
+
+    header h2{
+        font-size: 30px;
+    }
+
+    #resetText {
+        font-size: 30px;
+    }
+
+    .container {
+        height: 239px;
+        width: 306px;
+        margin: auto;
+    }
+
+    .slot {
+        width: 34px;
+        height: 34px;
+    }
+}
+
+
+@media only screen
+  and (min-device-width: 375px)
+  and (max-device-height: 667px) {
+    body {
+        width: 375px;
+    }
+
+    .container {
+        height: 239px;
+        width: 306px;
+    }
+
+    .slot {
+        width: 34px;
+        height: 34px;
+    }
+
+    .modal-overlay {
+        width: 100%;
+        justify-content: flex-start;
+        margin-left: 12px;
+    }
+
+    .modal-content {
+        width: 350px;
+        font-size: 10px;
+    }
 }
