@@ -1,6 +1,6 @@
 body {
     background-image: url(/images/tropical-beach-background-1.jpg);
-    background-size: 100% 100%;
+    background-size: 100vw 105vh;
     background-position: center;
     background-repeat: no-repeat;
     font-family: "Tropical";
@@ -13,7 +13,8 @@ body {
 .container {
     height: fit-content;
     width: fit-content;
-    background-color: blue;
+    /* background-color: rgba(126, 186, 255, 0.568); */
+    background-image: linear-gradient(rgba(255, 94, 0, 0.5), rgba(237, 216, 100, 0.5));
     display: flex;
     margin: 0 auto;
     padding: 1rem;
@@ -27,20 +28,24 @@ body {
 
 .slot {
     width: 90px;
-    height: 90px;;
+    height: 90px;
     background-color: white;
     border-radius: 50%;
     margin: 5px;
 }
 
-.red {
+.slot:hover {
+    cursor: pointer;
+}
+
+.player1 {
     background-image: url(/images/corona.jpg);
     background-size: 100% 100%;
     background-position: center;
     background-repeat: no-repeat;
 }
 
-.yellow {
+.player2 {
     background-image: url(/images/lagunitas.jpg);
     background-size: 100% 100%;
     background-position: center;
@@ -81,9 +86,8 @@ body {
     color:white
 }
 
-#resetButton {
-    margin-top: 3%;
-    font-size: 1.5rem;
+.modalButton:hover {
+    cursor: pointer;
 }
 
 .hidden {
@@ -103,4 +107,14 @@ h2, h1 {
 
 h1 {
     font-size: 400%;
+}
+
+#resetText {
+    font-size: 4rem;
+    margin: 0 auto;
+    width: fit-content;
+}
+
+#resetText:hover {
+    cursor: pointer;
 }
