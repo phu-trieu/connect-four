@@ -16,6 +16,7 @@ var getModalButton = document.getElementById("modalButton");
 var h1 = document.querySelector("h1");
 var h2 = document.querySelector("h2");
 var modal = document.querySelector(".modal-overlay");
+var modalPlayerNumber = document.getElementById('modalPlayerNumber');
 
 //Event Listeners
 container.addEventListener("click", dropChip);
@@ -43,6 +44,13 @@ function horizontalWin() {
                 grids[col] !== 0
             ) {
                 modal.classList.remove("hidden");
+                if(currentPlayer === 1) {
+                    currentPlayer = 2;
+                    modalPlayerNumber.textContent = 'Player ' + currentPlayer + ' has won the game!';
+                } else if(currentPlayer === 2) {
+                    currentPlayer = 1;
+                    modalPlayerNumber.textContent = 'Player ' + currentPlayer + ' has won the game!';
+                }
             }
         }
     }
@@ -60,6 +68,13 @@ function verticalWin() {
                 grids[col] !== 0
             ) {
                 modal.classList.remove("hidden");
+                if (currentPlayer === 1) {
+                    currentPlayer = 2;
+                    modalPlayerNumber.textContent = 'Player ' + currentPlayer + ' has won the game!';
+                } else if (currentPlayer === 2) {
+                    currentPlayer = 1;
+                    modalPlayerNumber.textContent = 'Player ' + currentPlayer + ' has won the game!';
+                }
             }
         }
     }
@@ -76,6 +91,13 @@ function diagonalPlus() {
                 grid[row][col] !== 0
             ) {
                 modal.classList.remove("hidden");
+                if (currentPlayer === 1) {
+                    currentPlayer = 2;
+                    modalPlayerNumber.textContent = 'Player ' + currentPlayer + ' has won the game!';
+                } else if (currentPlayer === 2) {
+                    currentPlayer = 1;
+                    modalPlayerNumber.textContent = 'Player ' + currentPlayer + ' has won the game!';
+                }
             }
         }
     }
@@ -93,6 +115,13 @@ function diagonalMinus() {
                 grid[row][col] !== 0
             ) {
                 modal.classList.remove("hidden");
+                if (currentPlayer === 1) {
+                    currentPlayer = 2;
+                    modalPlayerNumber.textContent = 'Player ' + currentPlayer + ' has won the game!';
+                } else if (currentPlayer === 2) {
+                    currentPlayer = 1;
+                    modalPlayerNumber.textContent = 'Player ' + currentPlayer + ' has won the game!';
+                }
             }
         }
     }
