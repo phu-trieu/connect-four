@@ -112,15 +112,21 @@ h1 {
     align-items: center;
     flex-wrap: wrap;
     text-align: center;
-    width: 50vw;
+    width: 25vw;
     height: 50vh;
     color: white;
     border-radius: 50px;
 }
 
-.beer-content > * {
-    width: 17%;
-    height: 24%;
+.box {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    width: 66%;
+}
+
+.box > * {
+    flex-basis: 30%;
 }
 
 .corona-slot, .lag-slot {
@@ -204,4 +210,45 @@ h1 {
         width: 350px;
         font-size: 10px;
     }
+
+    .beer-content {
+        width: 80vw;
+    }
+
+    .beer-content > h1 {
+        font-size: 2rem;
+    }
+
+    .box {
+        width: 100%;
+    }
+
+    .box > * {
+        height: 84px;
+    }
 }
+
+@media only screen
+  and (min-device-width: 667px)
+  and (max-device-height: 375px) {
+    .modal-beer {
+        width: 56%;
+        height: 66vh;
+    }
+
+    .beer-content {
+        width: 50vw;
+    }
+
+    .beer-content > h1 {
+        font-size: 2rem;
+    }
+
+    .box {
+        width: 100%;
+    }
+
+    .box > * {
+        height: 84px;
+    }
+  }

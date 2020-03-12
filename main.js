@@ -199,13 +199,15 @@ function modalReset() {
 }
 
 var beer = document.getElementById("beerContent");
+var box = document.querySelector('.box')
+
 beer.addEventListener("click", beerClick);
 
 var beerModal = document.querySelector(".modal-beer");
 
 function beerClick(e) {
     if (e.target.classList.contains("slot")) {
-        e.target.classList.add("hidden");
+        e.target.classList.add("invisible");
         var beerIcon = e.target.id;
         array.push(beerIcon);
 
@@ -216,8 +218,8 @@ function beerClick(e) {
 }
 
 function destroyBeer() {
-    while (beer.hasChildNodes()) {
-        beer.removeChild(beer.lastChild);
+    while (box.hasChildNodes()) {
+        box.removeChild(box.lastChild);
     }
     createBeer();
     array = [];
@@ -228,7 +230,7 @@ function createBeer() {
         var div = document.createElement("div");
         div.className = `slot player${i}`;
         div.setAttribute("id", `player${i}`);
-        beer.appendChild(div);
+        box.appendChild(div);
     }
-    beerModal.classList.remove("hidden");
+    beerModal.classList.remove('hidden')
 }
