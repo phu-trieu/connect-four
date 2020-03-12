@@ -11,8 +11,19 @@
     <body>
         <header>
             <img src="./images/title.png" alt="title" class="title" >
-            <h2>Player 1's Turn</h2>
         </header>
+        <div class="player">
+            <div>
+                <p id="p1wins">Player 1 Wins: </p>
+            </div>
+            <div>
+                <h2>Player 1's Turn</h2>
+            </div>
+            <div>
+                <p id="p2wins"> Player 2 Wins: </p>
+            </div>
+        </div>
+
         <div class="container" id="container">
             <div class="column" id="0">
                 <div class="slot" id="cell00"></div>
@@ -71,7 +82,7 @@
                 <div class="slot" id="cell56"></div>
             </div>
         </div>
-        <div class="modal-beer">
+        <div class="modal-beer hidden">
             <div class="beer-list">
                 <div class="beer-content" id="beerContent">
                     <h1>CHOOSE YOUR BEER</h1>
