@@ -9,18 +9,22 @@ var grid = [
 
 var currentPlayer = 1;
 var array = [];
+var turn = 0;
 
 //DOM Elements
 var container = document.getElementById("container");
-var getModalButton = document.getElementById("modalButton");
+var winModalButton = document.getElementById("modalButton");
+var drawModalButton = document.getElementById("drawModalButton");
 var getResetText = document.getElementById("resetText");
 var h2 = document.querySelector("h2");
-var modal = document.querySelector(".modal-overlay");
+var winModal = document.querySelector(".win-game");
+var tieModal = document.querySelector(".tie-game")
 var modalPlayerNumber = document.getElementById("modalPlayerNumber");
 
 //Event Listeners
 container.addEventListener("click", dropChip);
-getModalButton.addEventListener("click", modalReset);
+winModalButton.addEventListener("click", modalReset);
+drawModalButton.addEventListener('click', modalReset)
 getResetText.addEventListener("click", resetGame);
 
 // win condition
@@ -43,7 +47,7 @@ function horizontalWin() {
                 grids[col] === grids[col + 3] &&
                 grids[col] !== 0
             ) {
-                modal.classList.remove("hidden");
+                winModal.classList.remove("hidden");
                 if (currentPlayer === 1) {
                     currentPlayer = 2;
                     modalPlayerNumber.textContent = "Player " + currentPlayer + " has won the game!";
@@ -67,7 +71,7 @@ function verticalWin() {
                 grids[col] === grid[row + 3][col] &&
                 grids[col] !== 0
             ) {
-                modal.classList.remove("hidden");
+                winModal.classList.remove("hidden");
                 if (currentPlayer === 1) {
                     currentPlayer = 2;
                     modalPlayerNumber.textContent = "Player " + currentPlayer + " has won the game!";
@@ -90,7 +94,7 @@ function diagonalPlus() {
                 grid[row - 2][col + 2] === grid[row - 3][col + 3] &&
                 grid[row][col] !== 0
             ) {
-                modal.classList.remove("hidden");
+                winModal.classList.remove("hidden");
                 if (currentPlayer === 1) {
                     currentPlayer = 2;
                     modalPlayerNumber.textContent = "Player " + currentPlayer + " has won the game!";
@@ -114,7 +118,7 @@ function diagonalMinus() {
                 grid[row][col] === grid[row + 3][col + 3] &&
                 grid[row][col] !== 0
             ) {
-                modal.classList.remove("hidden");
+                winModal.classList.remove("hidden");
                 if (currentPlayer === 1) {
                     currentPlayer = 2;
                     modalPlayerNumber.textContent = "Player " + currentPlayer + " has won the game!";
@@ -157,6 +161,8 @@ function dropChip(e) {
     }
     colorGrid();
     winConditions();
+    turn++;
+    turnCounter();
 }
 
 function colorGrid() {
@@ -183,6 +189,7 @@ function resetGame() {
     h2.textContent = "Player 1's Turn";
     colorGrid();
     destroyBeer();
+    turn = 0;
 }
 
 function modalReset() {
@@ -192,10 +199,12 @@ function modalReset() {
         }
     }
     currentPlayer = 1;
-    modal.classList.add("hidden");
+    winModal.classList.add("hidden");
+    tieModal.classList.add('hidden');
     h2.textContent = "Player 1's Turn";
     colorGrid();
     destroyBeer();
+    turn = 0;
 }
 
 var beer = document.getElementById("beerContent");
@@ -233,4 +242,10 @@ function createBeer() {
         box.appendChild(div);
     }
     beerModal.classList.remove('hidden')
+}
+
+function turnCounter() {
+    if (turn === 42) {
+        tieModal.classList.remove('hidden');
+    }
 }

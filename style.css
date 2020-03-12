@@ -8,6 +8,7 @@ body {
     width: 100%;
     text-align: center;
     margin: 0;
+    position: relative;
 }
 
 .container {
@@ -29,7 +30,7 @@ body {
 .slot {
     width: 90px;
     height: 90px;
-    background-color: white;
+    background-color: rgba(255, 255, 255, 0.61);
     border-radius: 50%;
     margin: 5px;
 }
@@ -39,7 +40,7 @@ body {
 }
 
 .modal-overlay, .modal-beer {
-    position: fixed;
+    position: absolute;
     display: flex;
     justify-content: center;
     align-items: center;
