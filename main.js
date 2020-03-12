@@ -42,11 +42,11 @@ function winConditions() {
 
 function winTracker() {
     if (currentPlayer !== 1) {
-        p2Wins++;
-        playerOneWins.textContent = "Player 2 Wins: " + p2Wins
-    } else {
         p1Wins++;
-        playerTwoWins.textContent = "Player 1 Wins: " + p1Wins
+        playerOneWins.textContent = "Player 1 Wins: " + p1Wins
+    } else {
+        p2Wins++;
+        playerTwoWins.textContent = "Player 2 Wins: " + p2Wins
     }
 }
 
