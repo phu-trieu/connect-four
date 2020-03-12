@@ -253,3 +253,15 @@ h1 {
         height: 84px;
     }
   }
+
+  .player {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-evenly;
+      width: 65%;
+      margin: 0 auto;
+  }
+
+  .player > div > p {
+      font-size: 1.3rem;
+  }
