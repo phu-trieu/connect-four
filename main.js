@@ -43,10 +43,10 @@ function winConditions() {
 function winTracker() {
     if (currentPlayer !== 1) {
         p1Wins++;
-        playerOneWins.textContent = "Player 1 Wins: " + p1Wins
+        playerOneWins.textContent = "Player 1 Wins: " + p1Wins;
     } else {
         p2Wins++;
-        playerTwoWins.textContent = "Player 2 Wins: " + p2Wins
+        playerTwoWins.textContent = "Player 2 Wins: " + p2Wins;
     }
 }
 
@@ -61,6 +61,14 @@ function horizontalWin() {
                 grids[col] === grids[col + 3] &&
                 grids[col] !== 0
             ) {
+                var winning1 = document.getElementById("cell" + row + col);
+                var winning2 = document.getElementById("cell" + row + (col + 1));
+                var winning3 = document.getElementById("cell" + row + (col + 2));
+                var winning4 = document.getElementById("cell" + row + (col + 3));
+                winning1.classList.add("spin2");
+                winning2.classList.add("spin2");
+                winning3.classList.add("spin2");
+                winning4.classList.add("spin2");
                 winModal.classList.remove("hidden");
                 winTracker();
                 if (currentPlayer === 1) {
@@ -86,6 +94,14 @@ function verticalWin() {
                 grids[col] === grid[row + 3][col] &&
                 grids[col] !== 0
             ) {
+                var winning1 = document.getElementById("cell" + row + col);
+                var winning2 = document.getElementById("cell" + (row + 1) + col);
+                var winning3 = document.getElementById("cell" + (row + 2) + col);
+                var winning4 = document.getElementById("cell" + (row + 3) + col);
+                winning1.classList.add("spin2");
+                winning2.classList.add("spin2");
+                winning3.classList.add("spin2");
+                winning4.classList.add("spin2");
                 winModal.classList.remove("hidden");
                 winTracker();
                 if (currentPlayer === 1) {
@@ -110,6 +126,14 @@ function diagonalPlus() {
                 grid[row - 2][col + 2] === grid[row - 3][col + 3] &&
                 grid[row][col] !== 0
             ) {
+                var winning1 = document.getElementById("cell" + (row - 3) + (col + 3));
+                var winning2 = document.getElementById("cell" + (row - 2) + (col + 2));
+                var winning3 = document.getElementById("cell" + (row - 1) + (col + 1));
+                var winning4 = document.getElementById("cell" + row + col);
+                winning1.classList.add("spin2");
+                winning2.classList.add("spin2");
+                winning3.classList.add("spin2");
+                winning4.classList.add("spin2");
                 winModal.classList.remove("hidden");
                 winTracker();
                 if (currentPlayer === 1) {
@@ -135,6 +159,14 @@ function diagonalMinus() {
                 grid[row][col] === grid[row + 3][col + 3] &&
                 grid[row][col] !== 0
             ) {
+                var winning1 = document.getElementById("cell" + row + col);
+                var winning2 = document.getElementById("cell" + (row + 1) + (col + 1));
+                var winning3 = document.getElementById("cell" + (row + 2) + (col + 2));
+                var winning4 = document.getElementById("cell" + (row + 3) + (col + 3));
+                winning1.classList.add("spin2");
+                winning2.classList.add("spin2");
+                winning3.classList.add("spin2");
+                winning4.classList.add("spin2");
                 winModal.classList.remove("hidden");
                 winTracker();
                 if (currentPlayer === 1) {
@@ -189,9 +221,9 @@ function colorGrid() {
             if (grid[row][col] === 0) {
                 document.getElementById("cell" + row + col).className = "slot";
             } else if (grid[row][col] === 1) {
-                document.getElementById("cell" + row + col).className = "slot " + array[0];
+                document.getElementById("cell" + row + col).className = "slot spin " + array[0];
             } else if (grid[row][col] === 2) {
-                document.getElementById("cell" + row + col).className = "slot " + array[1];
+                document.getElementById("cell" + row + col).className = "slot spin " + array[1];
             }
         }
     }
